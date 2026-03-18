@@ -42,6 +42,7 @@ The Windows ISO was attached under an incorrect storage controller (SATA misconf
 ---
 
 ## Resolution
+- Powered off the virtual machine
 - Reattached the ISO to the correct storage controller  
 - Restarted the virtual machine  
 - Verified proper boot sequence  
