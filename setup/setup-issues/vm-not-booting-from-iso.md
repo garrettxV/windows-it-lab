@@ -1,7 +1,7 @@
 # 🖥️ Windows VM Installation (VirtualBox)
 
 ## Objective
-Set up a Windows virtual machine to simulate real-world IT support scenarios.
+Set up a Windows virtual machine to simulate real-world IT support and troubleshooting scenarios.
 
 ---
 
@@ -34,7 +34,7 @@ The virtual machine failed to boot after attaching the Windows ISO.
 ---
 
 ## Root Cause
-The Windows ISO was attached under an incorrect storage controller (SATA misconfiguration).
+The Windows ISO was attached to the **SATA controller**, which prevented the VM from recognizing it as a bootable device.
 
 ### Incorrect Configuration
 ![Incorrect Controller](screenshots/02-iso-attached.png)
@@ -42,10 +42,10 @@ The Windows ISO was attached under an incorrect storage controller (SATA misconf
 ---
 
 ## Resolution
-- Powered off the virtual machine
-- Reattached the ISO to the correct storage controller  
+- Powered off the virtual machine  
+- Reattached the ISO to the **PIIX4 (IDE) controller**  
 - Restarted the virtual machine  
-- Verified proper boot sequence  
+- Confirmed correct boot sequence  
 
 ### Fixed Configuration
 ![Controller Fix](screenshots/04-controller-fixed.png)
@@ -61,4 +61,5 @@ The virtual machine successfully booted into the Windows installation environmen
 ---
 
 ## Key Takeaway
-Correct storage controller configuration is critical for VM boot operations. Misconfigured ISO attachments can prevent successful OS installation.
+Proper storage controller configuration is essential for booting installation media.  
+Attaching an ISO to the wrong controller can prevent the system from detecting a bootable device.
