@@ -48,7 +48,7 @@ The Windows ISO was attached under an incorrect storage controller (SATA misconf
 - Verified proper boot sequence  
 
 ### Fixed Configuration
-![Controller Fix](screenshots/04-controller-fix.png)
+![Controller Fix](screenshots/04-controller-fixed.png)
 
 ---
 
