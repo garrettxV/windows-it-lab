@@ -56,7 +56,7 @@ The Windows ISO was attached under an incorrect storage controller (SATA misconf
 The virtual machine successfully booted into the Windows installation environment.
 
 ### Successful Boot
-![Windows Install](screenshots/05-windows-install-start.png)
+![Windows Install](screenshots/05-windows-start.png)
 
 ---
 
