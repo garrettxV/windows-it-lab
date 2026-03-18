@@ -1,7 +1,7 @@
 # 🖥️ Windows VM Installation (VirtualBox)
 
 ## Objective
-Set up a Windows virtual machine to simulate real-world IT support and troubleshooting scenarios.
+Set up a Windows virtual machine to simulate real-world IT support scenarios.
 
 ---
 
@@ -14,52 +14,77 @@ Set up a Windows virtual machine to simulate real-world IT support and troublesh
 ---
 
 ## Initial VM Configuration
-![VM Settings](screenshots/01-vm-settings.png)
+The virtual machine was created with a virtual hard disk attached to the SATA controller.
+
+![Initial Configuration](screenshots/01-initial-state-no-iso.png)
 
 ---
 
 ## Issue
-The virtual machine failed to boot after attaching the Windows ISO.
+The virtual machine initially failed to boot into the Windows installation environment.
 
-### Boot Error
+### Observed Behavior
+- System did not enter Windows setup  
+- Error message displayed:
+
+> "No bootable option or device was found."
+
 ![Boot Error](screenshots/03-boot-error.png)
 
 ---
 
-## Troubleshooting Steps
-1. Verified the Windows ISO was properly attached  
-2. Checked VM boot order settings  
-3. Reviewed storage controller configuration in VirtualBox  
+## Troubleshooting Process
+1. Verified that the Windows ISO file was properly attached to the virtual machine  
+2. Reviewed storage controller configuration  
+3. Confirmed boot order prioritization (optical drive first)  
+4. Observed system behavior during startup  
+
+### ISO Verification
+The ISO was confirmed to be attached to the SATA controller.
+
+![ISO Attached](screenshots/02-iso-attached.png)
 
 ---
 
 ## Root Cause
-The Windows ISO was attached to the **SATA controller**, which prevented the VM from recognizing it as a bootable device.
+The system displayed a boot prompt during startup:
 
-### Incorrect Configuration
-![Incorrect Controller](screenshots/02-iso-attached.png)
+> "Press any key to boot from CD or DVD..."
+
+No input was provided within the required time window, causing the VM to skip the ISO and attempt to boot from the virtual hard disk instead.
 
 ---
 
 ## Resolution
-- Powered off the virtual machine  
-- Reattached the ISO to the **PIIX4 (IDE) controller**  
 - Restarted the virtual machine  
-- Confirmed correct boot sequence  
-
-### Fixed Configuration
-![Controller Fix](screenshots/04-controller-fixed.png)
+- Pressed a key immediately when prompted during boot  
 
 ---
 
 ## Result
 The virtual machine successfully booted into the Windows installation environment.
 
-### Successful Boot
-![Windows Install](screenshots/05-windows-start.png)
+![Windows Installation Screen](screenshots/05-windows-start.png)
+
+---
+
+## ⚠️ Common Pitfall: Missed Boot Prompt
+This behavior can appear to be a configuration or hardware issue but is actually expected system behavior.
+
+If no key is pressed during the boot prompt:
+- The system defaults to the next boot device  
+- This can result in a misleading “no bootable device” error  
 
 ---
 
 ## Key Takeaway
-Proper storage controller configuration is essential for booting installation media.  
-This issue mirrors real-world scenarios where improper hardware configuration prevents system boot.
+Not all boot failures are caused by misconfiguration. Carefully observing system prompts and verifying system behavior is critical for accurate troubleshooting.
+
+---
+
+## Skills Demonstrated
+- Virtual machine setup (VirtualBox)  
+- OS installation process  
+- Boot sequence troubleshooting  
+- Root cause analysis (user interaction vs system issue)  
+- Technical documentation and structured problem-solving  
