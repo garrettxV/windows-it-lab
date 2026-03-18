@@ -62,4 +62,4 @@ The virtual machine successfully booted into the Windows installation environmen
 
 ## Key Takeaway
 Proper storage controller configuration is essential for booting installation media.  
-Attaching an ISO to the wrong controller can prevent the system from detecting a bootable device.
+This issue mirrors real-world scenarios where improper hardware configuration prevents system boot.
