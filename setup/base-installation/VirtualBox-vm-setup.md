@@ -45,7 +45,7 @@ EFI was enabled to support Windows 11 installation requirements.
 ## Result
 The virtual machine successfully booted into the Windows installation setup screen, confirming proper configuration.
 
-![Windows Installation Screen](screenshots/05-windows-start.png)
+![Windows Installation Screen](05-windows-start.png)
 
 ---
 
