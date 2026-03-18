@@ -13,8 +13,16 @@ Set up a Windows virtual machine to simulate real-world IT support scenarios.
 
 ---
 
+## Initial VM Configuration
+![VM Settings](screenshots/01-vm-settings.png)
+
+---
+
 ## Issue
 The virtual machine failed to boot after attaching the Windows ISO.
+
+### Boot Error
+![Boot Error](screenshots/03-boot-error.png)
 
 ---
 
@@ -26,7 +34,10 @@ The virtual machine failed to boot after attaching the Windows ISO.
 ---
 
 ## Root Cause
-The Windows ISO was attached under an incorrect storage controller (SATA misconfiguration), preventing the VM from booting properly.
+The Windows ISO was attached under an incorrect storage controller (SATA misconfiguration).
+
+### Incorrect Configuration
+![Incorrect Controller](screenshots/02-iso-attached.png)
 
 ---
 
@@ -35,10 +46,16 @@ The Windows ISO was attached under an incorrect storage controller (SATA misconf
 - Restarted the virtual machine  
 - Verified proper boot sequence  
 
+### Fixed Configuration
+![Controller Fix](screenshots/04-controller-fix.png)
+
 ---
 
 ## Result
 The virtual machine successfully booted into the Windows installation environment.
+
+### Successful Boot
+![Windows Install](screenshots/05-windows-install-start.png)
 
 ---
 
